@@ -1,0 +1,97 @@
+00001 BEGIN
+00002 
+00003   PRAGMAT precision=100 PRAGMAT
+00004   
+00005   MODE DOUBLE = LONG REAL;
+00006 
+00007   COMMENT 
+00008        *********************************************************************** 
+00009        * Asumiendo tasas de inflacion anual de 7%, 8%, y 10%,                *
+00010        * encontrar el FACTOR por el cual cualquier moneda, tales como        * 
+00011        * el franco, el dolar, la libra esterlina, el marco, el rublo, el yen * 
+00012        * o el florin han sido devaluadas en 1, 2, ...., N anos.              *
+       ERROR 014: No se pueden más de 5 líneas continuas de comando sin punto y coma
+00013        *********************************************************************** 
+00014   COMMENT
+00015 
+00016   INT  max_anos;  
+       ERROR 015: La línea anterior no tiene punto y coma
+00017   INT  ano;
+       ERROR 015: La línea anterior no tiene punto y coma
+00018   REAL factor1, factor2, factor3;  
+       ERROR 015: La línea anterior no tiene punto y coma
+00019   CHAR respuesta;
+       ERROR 015: La línea anterior no tiene punto y coma
+00020 
+00021   # Inicio del programa CALCULAR_INFLACION #
+00022   inicio:
+       ERROR 015: La línea anterior no tiene punto y coma
+00023     print ( newline );
+00024     CO Entrada de datos CO
+00025     print ( newline );
+00026     print ( "POR   FAVOR,   indique la cantidad maxima de anos:" );
+00027     print ( newline );
+00028 
+00029     e10050:
+00030       read ( max_anos );
+00031 
+00032     IF ( max_anos <= 0 ) THEN
+00033        GOTO ceroanos
+       ERROR 010: Etiqueta no ha sido definida
+00034     FI;
+00035 
+00036     CO Inicializacion de variables CO
+00037 
+00038     ano     := 0;
+       ERROR 006: Error en la sintaxis de la etiqueta
+00039     factor1 := 1.0;
+       ERROR 006: Error en la sintaxis de la etiqueta
+00040     factor2 := 1.0;
+       ERROR 006: Error en la sintaxis de la etiqueta
+00041     factor3 := 1.0;
+       ERROR 006: Error en la sintaxis de la etiqueta
+00042 
+00043     # Calculos y salida de datos #
+00044 
+00045     print ( newline );
+00046     print ( "        ANO 7%                 8%                    10%" );
+00047     print ( newline );
+00048 
+00049     FOR ano FROM 1 BY 1 TO max_anos
+00050     DO
+       ERROR 015: La línea anterior no tiene punto y coma
+00051       factor1 := ( factor1 *   
+       ERROR 006: Error en la sintaxis de la etiqueta
+00052                    1.07 );
+00053       factor2 := ( factor2 )
+       ERROR 006: Error en la sintaxis de la etiqueta
+00054                  *
+00055                  1.08;
+00056       factor3 := factor3 * ( 1.10 );
+       ERROR 006: Error en la sintaxis de la etiqueta
+00057       print ( (ano, factor1, factor2, factor3) );
+00058       print ( newline )
+00059     OD;      
+00060 
+00061     print ( newline );
+00062     print ( "*** FIN DEL PROGRAMA NORMAL ***" );
+00063     print ( newline );
+00064 
+00065     print ( "Otra vez?" );
+00066     read ( respuesta );
+00067     IF ( respuesta = "S" OR respuesta = "s" ) THEN
+00068        GOTO inicio
+       ERROR 010: Etiqueta no ha sido definida
+00069     ELSE
+00070        GOTO fin999
+       ERROR 010: Etiqueta no ha sido definida
+00071     FI;
+00072 
+00073   ceroanos:
+00074     print ( "*** FIN DEL PROGRAMA PORQUE INDICO 0 ANOS ***" );
+00075 
+00076   fin999:
+00077     SKIP
+00078 END
+00079 
+00080   # Fin del programa CALCULAR_INFLACION #
