@@ -1,0 +1,4 @@
+Total Palabras:86
+Total Caracteres sin espacio:495
+Total Caracteres con espacio:581
+Total de lineas:10
